@@ -40,5 +40,7 @@ function addToSearchedCities(city){
 
 function fetchWeatherForcast(data){
   // tbc
-  
+  let {lat} = data;
+  let {lon} = data;
+  let forcastUrl= `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${myApiKey}`;
 }
