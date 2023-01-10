@@ -28,7 +28,7 @@ function fetchGeoCoords(city){
     .then(function(data){
       console.log("data= ", data);
       addToSearchedCities(city);
-      fetchWeatherForcast(data[0]);
+      fetchWeatherForcast(data[0],city);
     })
     .catch(function(error){
       console.error(error);
@@ -38,9 +38,24 @@ function addToSearchedCities(city){
   // tbd
 }
 
-function fetchWeatherForcast(data){
+function fetchWeatherForcast(data, city){
   // tbd
   let {lat} = data;
   let {lon} = data;
   let forcastUrl= `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${myApiKey}`;
+  fetch(forcastUrl)
+    .then(function(response){
+      return response.json();
+    })
+    .then(function(data){
+      console.log("data= ", data);
+      displayWeather(city, data);
+      
+    })
+    .catch(function(error){
+      console.error(error);
+    });
+}
+function displayWeather(city, data) {
+  console.log("tbc");
 }
