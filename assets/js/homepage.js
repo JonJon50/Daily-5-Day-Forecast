@@ -19,7 +19,7 @@ function handleSearch(e) {
 }
 
 function fetchGeoCoords(city){
-  // tbc
+  // tbd
   let geoUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=3&appid=${myApiKey}`;
   fetch(geoUrl)
     .then(function(response){
@@ -35,11 +35,11 @@ function fetchGeoCoords(city){
     });
 }
 function addToSearchedCities(city){
-  // tbc
+  // tbd
 }
 
 function fetchWeatherForcast(data){
-  // tbc
+  // tbd
   let {lat} = data;
   let {lon} = data;
   let forcastUrl= `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${myApiKey}`;
