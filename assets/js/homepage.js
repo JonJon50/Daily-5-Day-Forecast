@@ -3,6 +3,8 @@ var searchedCities = [];
 var formEl = document.querySelector('#form-id');
 var inputEl = document.querySelector('#input-id');
 var myApiKey = "eb177e92d9d9eb35b3a16c1624694622";
+var todayDiv = document.querySelector('#today-id');
+var forecastDiv = document.querySelector('#forecast-id');
 formEl.addEventListener('submit', handleSearch);
 
 function handleSearch(e) {
@@ -64,4 +66,32 @@ function displayWeather(city, data) {
   let iconUrl = `https://openweathermap.org/img/w/${data.list[0].weather[0].icon}.png`;
   let iconDescription = data.list[0].weather[0].description || data.list[0].main;
   console.log(temp, wind, humidity, iconDescription, iconUrl)
+  let card = document.createElement('div');
+  let cardBody = document.createElement('div');
+  let heading = document.createElement('h2');
+  let weatherIcon = document.createElement('img');
+  let tempEl = document.createElement('p');
+  let windEl = document.createElement('p');
+  let humidityEl = document.createElement('p');
+
+  card.setAttribute('class', 'card');
+  cardBody.setAttribute('class', 'card-body');
+  card.append(cardBody);
+
+  heading.setAttribute('class', 'h3 card-title');
+  tempEl.setAttribute('class', 'card-text');
+  windEl.setAttribute('class', 'card-text');
+  humidityEl.setAttribute('class', 'card-text');
+
+  weatherIcon.setAttribute('src', iconUrl);
+  weatherIcon.setAttribute('alt', iconDescription);
+  weatherIcon.setAttribute('class', 'weather-img');
+  heading.append(weatherIcon);
+  tempEl.textContent = `Temp: ${temp}°F`;
+  windEl.textContent = `Wind: ${wind} MPH`;
+  humidityEl.textContent = `Humidity: ${humidity} %`;
+  cardBody.append(heading, tempEl, windEl, humidityEl);
+
+  todayDiv.innerHTML = '';
+  todayDiv.append(card);
 }
