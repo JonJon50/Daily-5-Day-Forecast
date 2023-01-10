@@ -60,6 +60,7 @@ function fetchWeatherForcast(data, city){
 }
 function displayWeather(city, data) {
   console.log("tbc");
+  let date= data.list[0].dt_txt;
   let temp= data.list[0].main.temp;
   let wind= data.list[0].wind.speed;
   let humidity= data.list[0].main.humidity;
@@ -83,6 +84,7 @@ function displayWeather(city, data) {
   windEl.setAttribute('class', 'card-text');
   humidityEl.setAttribute('class', 'card-text');
 
+  heading.textContent = `${city} (${date})`;
   weatherIcon.setAttribute('src', iconUrl);
   weatherIcon.setAttribute('alt', iconDescription);
   weatherIcon.setAttribute('class', 'weather-img');
