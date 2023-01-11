@@ -19,7 +19,7 @@ function handleSearch(e) {
   fetchGeoCoords(city);
   inputEl.value = '';
 }
-
+/* applying data weather key with fetch method */
 function fetchGeoCoords(city){
   // tbd
   let geoUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=3&appid=${myApiKey}`;
@@ -59,6 +59,7 @@ function fetchWeatherForcast(data, city){
       console.error(error);
     });
 }
+
 function displayWeather(city, data) {
   console.log("tbc");
   let date= data.list[0].dt_txt;
@@ -68,6 +69,7 @@ function displayWeather(city, data) {
   let iconUrl = `https://openweathermap.org/img/w/${data.list[0].weather[0].icon}.png`;
   let iconDescription = data.list[0].weather[0].description || data.list[0].main;
   console.log(temp, wind, humidity, iconDescription, iconUrl)
+  /* creating elements and attributes on HTML */
   let card = document.createElement('div');
   let cardBody = document.createElement('div');
   let heading = document.createElement('h2');
