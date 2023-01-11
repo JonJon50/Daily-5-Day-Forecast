@@ -52,6 +52,7 @@ function fetchWeatherForcast(data, city){
     .then(function(data){
       console.log("data= ", data);
       displayWeather(city, data);
+      displayForcast(city, data);
       
     })
     .catch(function(error){
@@ -96,4 +97,33 @@ function displayWeather(city, data) {
 
   todayDiv.innerHTML = '';
   todayDiv.append(card);
+}
+function displayForcast(city, data) {
+  let startDt = dayjs().add(1, 'day').startOf('day').unix();
+  let endDt = dayjs().add(6, 'day').startOf('day').unix();
+
+  let headingCol = document.createElement('div');
+  let heading = document.createElement('h4');
+
+  headingCol.setAttribute('class', 'col-12');
+  heading.textContent = '5-Day Forecast:';
+  headingCol.append(heading);
+
+  forecastDiv.innerHTML = '';
+  forecastDiv.append(headingCol);
+
+  for (let i = 0; i < data.list.length; i++) {
+
+    // First filters through all of the data and returns only data that falls between one day after the current data and up to 5 days later.
+    if (data.list[i].dt >= startDt && data.list[i].dt < endDt) {
+
+      // Then filters through the data and returns only data captured at noon for each day.
+      if (data.list[i].dt_txt.slice(11, 13) == "12") {
+        renderForecastCard(data.list[i]);
+      }
+    }
+  } 
+}
+function renderForecastCard(data){
+  //tbd
 }
