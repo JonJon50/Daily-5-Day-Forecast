@@ -127,5 +127,46 @@ function displayForcast(city, data) {
   } 
 }
 function renderForecastCard(data){
-  
+  var iconUrl = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`;
+  var iconDescription = data.weather[0].description;
+  var tempF = data.main.temp;
+  var humidity = data.main.humidity;
+  var windMph = data.wind.speed;
+
+  // var iconUrl = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`;
+  // var iconDescription = data.weather[0].description;
+  // var tempF = data.main.temp;
+  // var humidity = data.main.humidity;
+  // var windMph = data.wind.speed;
+
+  var col = document.createElement('div');
+  var card = document.createElement('div');
+  var cardBody = document.createElement('div');
+  var cardTitle = document.createElement('h5');
+  var weatherIcon = document.createElement('img');
+  var tempEl = document.createElement('p');
+  var windEl = document.createElement('p');
+  var humidityEl = document.createElement('p');
+
+  col.append(card);
+  card.append(cardBody);
+  cardBody.append(cardTitle, weatherIcon, tempEl, windEl, humidityEl);
+
+  col.setAttribute('class', 'col-md');
+  col.classList.add('five-day-card');
+  card.setAttribute('class', 'card bg-primary h-100 text-white');
+  cardBody.setAttribute('class', 'card-body p-2');
+  cardTitle.setAttribute('class', 'card-title');
+  tempEl.setAttribute('class', 'card-text');
+  windEl.setAttribute('class', 'card-text');
+  humidityEl.setAttribute('class', 'card-text');
+ // add cards 5 day
+  cardTitle.textContent = dayjs(data.dt_txt).format('M/D/YYYY');
+  weatherIcon.setAttribute('src', iconUrl);
+  weatherIcon.setAttribute('alt', iconDescription);
+  tempEl.textContent = `Temp: ${tempF} °F`;
+  windEl.textContent = `Wind: ${windMph} MPH`;
+  humidityEl.textContent = `Humidity: ${humidity} %`;
+
+  forecastDiv.append(col);
 }
