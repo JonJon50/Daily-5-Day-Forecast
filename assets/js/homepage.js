@@ -5,6 +5,7 @@ var inputEl = document.querySelector('#input-id');
 var myApiKey = "eb177e92d9d9eb35b3a16c1624694622";
 var todayDiv = document.querySelector('#today-id');
 var forecastDiv = document.querySelector('#forecast-id');
+var historyDiv = document.querySelector("#history-id");
 formEl.addEventListener('submit', handleSearch);
 
 function handleSearch(e) {
@@ -36,8 +37,19 @@ function fetchGeoCoords(city){
       console.error(error);
     });
 }
+// city search
 function addToSearchedCities(city){
-  // tbd
+  if (searchedCities.indexOf(search) !== -1) {
+    return;
+  }
+  searchedCities.push(search);
+
+  localStorage.setItem('search-history', JSON.stringify(searchHistory));
+  displaySearchHistory();
+}
+
+function displaySearchHistory(){
+historyDiv.innerHTML = "";
 }
 
 function fetchWeatherForcast(data, city){
