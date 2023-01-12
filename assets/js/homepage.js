@@ -44,7 +44,7 @@ function fetchWeatherForcast(data, city){
   // tbd
   let {lat} = data;
   let {lon} = data;
-  let forcastUrl= `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${myApiKey}`;
+  let forcastUrl= `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${myApiKey}&units=imperial`;
   fetch(forcastUrl)
     .then(function(response){
       return response.json();
