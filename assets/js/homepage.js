@@ -127,5 +127,5 @@ function displayForcast(city, data) {
   } 
 }
 function renderForecastCard(data){
-  //tbd
+  
 }
