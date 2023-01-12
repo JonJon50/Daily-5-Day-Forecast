@@ -63,7 +63,7 @@ function fetchWeatherForcast(data, city){
 function displayWeather(city, data) {
   console.log("tbc");
   let date= data.list[0].dt_txt;
-  let temp= data.list[0].main.temp;
+  let temp= weather.list[0].main.temp;
   let wind= data.list[0].wind.speed;
   let humidity= data.list[0].main.humidity;
   let iconUrl = `https://openweathermap.org/img/w/${data.list[0].weather[0].icon}.png`;
@@ -113,7 +113,7 @@ function displayForcast(city, data) {
 
   forecastDiv.innerHTML = '';
   forecastDiv.append(headingCol);
-
+/* for loop applied */ 
   for (let i = 0; i < data.list.length; i++) {
 
     // First filters through all of the data and returns only data that falls between one day after the current data and up to 5 days later.

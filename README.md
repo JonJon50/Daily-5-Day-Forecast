@@ -2,14 +2,14 @@
 
 <p align="center">Five day weather prediction.</p>
 
-                               ScreenShots 🏆
+                                        ScreenShots 🏆
 ![Photo1]()
 ![Photo2]()
 ![Photo2]()
 
 [Deployment Website](https://jonjon50.github.io/Daily-5-Day-Forecast/)
 
- **Hi 👋, I'm, John Hagens**
+ **Hi 👋, I'm John Hagens**
 
 - [Profile](https://github.com/JonJon50 "_John Hagens_")
 - [Email](gginuwine104@gmail.com "Hi!")
