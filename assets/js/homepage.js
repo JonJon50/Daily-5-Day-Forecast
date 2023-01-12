@@ -7,6 +7,26 @@ var todayDiv = document.querySelector('#today-id');
 var forecastDiv = document.querySelector('#forecast-id');
 var historyDiv = document.querySelector("#history-id");
 formEl.addEventListener('submit', handleSearch);
+historyDiv.addEventListener('click', handleHistoryClick);
+
+function init() {
+  var storedCities = localStorage.getItem('search-history');
+  if (storedCities) {
+    searchedCities = JSON.parse(storedCities);
+  }
+  displaySearchHistory();
+}
+
+function handleHistoryClick(e) {
+  // Don't do search if current elements is not a search history button
+  if (!e.target.matches('.btn-history')) {
+    return;
+  }
+
+  var btn = e.target;
+  var search = btn.getAttribute('data-search');
+  fetchGeoCoords(search);
+}
 
 function handleSearch(e) {
   // Don't continue if there is nothing in the search form
@@ -39,17 +59,29 @@ function fetchGeoCoords(city){
 }
 // city search
 function addToSearchedCities(city){
-  if (searchedCities.indexOf(search) !== -1) {
+  if (searchedCities.indexOf(city) !== -1) {
     return;
   }
-  searchedCities.push(search);
+  searchedCities.push(city);
 
-  localStorage.setItem('search-history', JSON.stringify(searchHistory));
+  localStorage.setItem('search-history', JSON.stringify(searchedCities));
   displaySearchHistory();
 }
 
 function displaySearchHistory(){
 historyDiv.innerHTML = "";
+
+for (var i = searchedCities.length - 1; i >= 0; i--) {
+  var btn = document.createElement('button');
+  btn.setAttribute('type', 'button');
+  btn.setAttribute('aria-controls', 'today forecast');
+  btn.classList.add('history-btn', 'btn-history');
+
+  // `data-search` allows access to city name when click handler is invoked
+  btn.setAttribute('data-search', searchedCities[i]);
+  btn.textContent = searchedCities[i];
+  historyDiv.append(btn);
+}
 }
 
 function fetchWeatherForcast(data, city){
@@ -182,3 +214,4 @@ function renderForecastCard(data){
 
   forecastDiv.append(col);
 }
+init();
