@@ -12,7 +12,7 @@
  **Hi 👋, I'm John Hagens**
 
 - [Profile](https://github.com/JonJon50 "_John Hagens_")
-- [Email](gginuwine104@gmail.com "Hi!")
+- [Email](ginuwine104@gmail.com "Hi!")
 - [Linkedln](https://www.linkedin.com/in/john-hagens-55b15212a/ "Welcome")
 
 - JavaScript

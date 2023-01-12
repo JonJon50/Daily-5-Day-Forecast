@@ -63,7 +63,7 @@ function fetchWeatherForcast(data, city){
 function displayWeather(city, data) {
   console.log("tbc");
   let date= data.list[0].dt_txt;
-  let temp= weather.list[0].main.temp;
+  let temp= data.list[0].main.temp;
   let wind= data.list[0].wind.speed;
   let humidity= data.list[0].main.humidity;
   let iconUrl = `https://openweathermap.org/img/w/${data.list[0].weather[0].icon}.png`;
