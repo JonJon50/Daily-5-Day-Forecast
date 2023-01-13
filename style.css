@@ -14,3 +14,17 @@ history-btn {
     transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
   }
 
+body {
+  background-image: url(/images/rainbow-weather.jpeg);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+  img.bg {
+    left: 50%;
+    margin-left: -512px;   /* 50% */
+  }
+}
