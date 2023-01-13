@@ -3,13 +3,19 @@
 <p align="center">Five day weather prediction.</p>
 
                                         ScreenShots 🏆
-![Photo1]()
-![Photo2]()
-![Photo2]()
+![Photo1](/images/Weather1.png)
+![Photo2](/images/Weather2.png)
+![Photo2](/images/Weather3.png)
 
 [Deployment Website](https://jonjon50.github.io/Daily-5-Day-Forecast/)
 
- **Hi 👋, I'm John Hagens**
+**Hi 👋, I'm John Hagens**
+
+
+- One of my biggest motivations for the project was incrementing the API into all user locations for better experiences. 
+- Using Geofetch for everyone to be a part of the interaction. Know the weather ahead of time, from the smallest concern like remembering an umbrella to saving lives. 
+- Protecting loved ones from a hurricane. By achieving this goal, made me a better coder and person by changing the world one code at a time.
+
 
 - [Profile](https://github.com/JonJon50 "_John Hagens_")
 - [Email](ginuwine104@gmail.com "Hi!")
