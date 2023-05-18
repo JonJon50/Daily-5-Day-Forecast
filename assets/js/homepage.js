@@ -1,5 +1,5 @@
 var searchedCities = [];
-// variables in DOM API
+// variables in DOM
 var formEl = document.querySelector('#form-id');
 var inputEl = document.querySelector('#input-id');
 var myApiKey = "eb177e92d9d9eb35b3a16c1624694622";
@@ -49,12 +49,11 @@ function fetchGeoCoords(city){
     .then(function(data){
       console.log("data= ", data);
       addToSearchedCities(city);
-      fetchWeatherForecast(data[0], city);
+      fetchWeatherForcast(data[0],city);
     })
     .catch(function(error){
       console.error(error);
     });
-  
 }
 // city search
 function addToSearchedCities(city){
@@ -79,19 +78,19 @@ function addToSearchedCities(city){
   }
 }
 // key calling la&lon with unit&imperial apply 
-function fetchWeatherForecast(data, city){
-  let { lat } = data;
-  let { lon } = data;
-  let forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${myApiKey}&units=imperial`;
-
-  fetch(forecastUrl)
+function fetchWeatherForcast(data, city){
+  let {lat} = data;
+  let {lon} = data;
+  let forcastUrl= `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${myApiKey}&units=imperial`;
+// fetch response to display weather  
+  fetch(forcastUrl)
     .then(function(response){
       return response.json();
     })
     .then(function(data){
       console.log("data= ", data);
       displayWeather(city, data);
-      displayForecast(city, data);
+      displayForcast(city, data);  
     })
     .catch(function(error){
       console.error(error);
