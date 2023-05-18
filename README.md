@@ -24,6 +24,8 @@
 - JavaScript
 - Jquery
 - Bootstrap
+- DOM manipulation
+- Fetch API
 - HTML
 - CSS
 
