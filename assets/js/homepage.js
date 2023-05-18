@@ -41,7 +41,7 @@ function handleSearch(e) {
 /* applying data weather key with fetch method */
 function fetchGeoCoords(city){
   // tbd
-  let geoUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=3&appid=${myApiKey}`;
+  let geoUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=3&appid=${myApiKey}`;
   fetch(geoUrl)
     .then(function(response){
       return response.json();
@@ -49,11 +49,12 @@ function fetchGeoCoords(city){
     .then(function(data){
       console.log("data= ", data);
       addToSearchedCities(city);
-      fetchWeatherForcast(data[0],city);
+      fetchWeatherForecast(data[0], city);
     })
     .catch(function(error){
       console.error(error);
     });
+  
 }
 // city search
 function addToSearchedCities(city){
@@ -78,19 +79,19 @@ function addToSearchedCities(city){
   }
 }
 // key calling la&lon with unit&imperial apply 
-function fetchWeatherForcast(data, city){
-  let {lat} = data;
-  let {lon} = data;
-  let forcastUrl= `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${myApiKey}&units=imperial`;
-// fetch response to display weather  
-  fetch(forcastUrl)
+function fetchWeatherForecast(data, city){
+  let { lat } = data;
+  let { lon } = data;
+  let forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${myApiKey}&units=imperial`;
+
+  fetch(forecastUrl)
     .then(function(response){
       return response.json();
     })
     .then(function(data){
       console.log("data= ", data);
       displayWeather(city, data);
-      displayForcast(city, data);  
+      displayForecast(city, data);
     })
     .catch(function(error){
       console.error(error);
