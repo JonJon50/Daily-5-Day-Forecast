@@ -14,13 +14,13 @@ history-btn {
     transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
   }
 
-body {
+/* body {
   background-image: url(https://media.wbur.org/wp/2020/04/CODNEXLAB-GOES-East-regional-northeast-13-00_21Z-20200402_map_data-13-1n-10-100.gif);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-}
+} */
 
 @media screen and (max-width: 1024px) { /* Specific to this particular image */
   img.bg {
